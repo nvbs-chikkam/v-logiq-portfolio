@@ -21,8 +21,8 @@ const personalInfo = {
   email: "nagaveerabhadrasaichikkam@gmail.com",
   linkedin: "https://www.linkedin.com/in/nvbs-chikkam",
   github: "https://github.com/nvbs-chikkam",
-  resumePath: "/Naga_Chikkam_Data_Analyst_Resume.pdf", // Upload your PDF to the 'public' folder and update this path if the name changes
-  resumeFileName: "Naga_Chikkam_Data_Analyst_Resume.pdf"
+  resumePath: "", // Upload your PDF to the 'public' folder and update this path (e.g., '/resume.pdf')
+  resumeFileName: "Naga_Chikkam_Resume.pdf"
 };
 
 const FULL_TEXT = "Data and Business Intelligence Analyst with a strong foundation in SQL, Power BI, and SAP S/4HANA. I sit at the intersection of data architecture and operational business logic. Combining hands-on operational experience with advanced AI-assisted development workflows, I specialize in rapidly prototyping and deploying high-performance digital dashboards. Whether analyzing high-volume enterprise datasets, modeling predictive risk scenarios, or engineering centralized command centers, my focus is on unifying fragmented workflows into actionable business modules that drive efficiency and strategic decision-making.";
@@ -545,7 +545,7 @@ export default function App() {
             <a href={personalInfo.linkedin} aria-label="LinkedIn Profile" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] rounded-full p-2 border border-transparent hover:border-cyan-500/30 bg-white/5 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"><Linkedin className="w-4 h-4" /></a>
             
             {/* MILLI-DETAIL: Upgraded from transition-colors to transition-all hover:-translate-y-0.5 for a premium kinetic lift */}
-            <a href={personalInfo.resumePath || '#'} aria-label="Download Resume" download={personalInfo.resumePath ? personalInfo.resumeFileName : undefined} target={personalInfo.resumePath ? "_blank" : undefined} rel={personalInfo.resumePath ? "noreferrer" : undefined} onClick={(e) => handleLinkClick(e, personalInfo.resumePath)} className="hidden sm:flex items-center text-sm font-medium tracking-wide text-slate-400 hover:text-cyan-400 transition-all hover:-translate-y-0.5 cursor-pointer mr-2 rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-cyan-500/50">
+            <a href={personalInfo.resumePath || '#'} aria-label="Download Resume" {...(personalInfo.resumePath ? { download: personalInfo.resumeFileName, target: "_blank", rel: "noreferrer" } : {})} onClick={(e) => handleLinkClick(e, personalInfo.resumePath)} className="hidden sm:flex items-center text-sm font-medium tracking-wide text-slate-400 hover:text-cyan-400 transition-all hover:-translate-y-0.5 cursor-pointer mr-2 rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-cyan-500/50">
               <Download className="w-4 h-4 mr-2" /> Resume
             </a>
             
@@ -630,7 +630,7 @@ export default function App() {
               <a href={personalInfo.linkedin} aria-label="LinkedIn Profile" target="_blank" rel="noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-center py-3 text-sm font-medium tracking-wide text-slate-400 bg-white/5 rounded-2xl border border-white/10 hover:text-cyan-400 hover:border-cyan-500/30 transition-all focus:outline-none focus:ring-2 focus:ring-cyan-500/50"><Linkedin className="w-5 h-5 mr-2" /> LinkedIn</a>
             </div>
 
-            <a href={personalInfo.resumePath || '#'} aria-label="Download Resume" download={personalInfo.resumePath ? personalInfo.resumeFileName : undefined} onClick={(e) => { setIsMobileMenuOpen(false); handleLinkClick(e, personalInfo.resumePath); }} className="flex items-center justify-center py-3 text-sm font-medium tracking-wide text-slate-400 bg-white/5 rounded-2xl border border-white/10 hover:text-cyan-400 hover:border-cyan-500/30 transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-500/50"><Download className="w-5 h-5 mr-2 text-cyan-500" /> Download Resume</a>
+            <a href={personalInfo.resumePath || '#'} aria-label="Download Resume" {...(personalInfo.resumePath ? { download: personalInfo.resumeFileName, target: "_blank", rel: "noreferrer" } : {})} onClick={(e) => { setIsMobileMenuOpen(false); handleLinkClick(e, personalInfo.resumePath); }} className="flex items-center justify-center py-3 text-sm font-medium tracking-wide text-slate-400 bg-white/5 rounded-2xl border border-white/10 hover:text-cyan-400 hover:border-cyan-500/30 transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-500/50"><Download className="w-5 h-5 mr-2 text-cyan-500" /> Download Resume</a>
             
             {/* UPGRADED: Refined typography for the mobile menu button */}
             <button onClick={() => scrollTo('contact')} aria-label="Establish Connection" className="bg-gradient-to-r from-cyan-600/20 to-blue-600/20 border border-cyan-500/30 text-cyan-300 py-3 rounded-full text-center text-sm font-semibold tracking-wide w-full mt-2 shadow-[0_0_15px_rgba(34,211,238,0.1)] focus:outline-none focus:ring-2 focus:ring-cyan-500/50">
